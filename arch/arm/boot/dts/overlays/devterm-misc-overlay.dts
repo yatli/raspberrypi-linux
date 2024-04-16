@@ -84,4 +84,17 @@
 		};
 	};
 	
+	fragment@5 {
+		target = <&pcie0>;
+		__overlay__ {
+			status = "disabled";
+		};
+	};
+
+	fragment@6 {
+		target = <&genet>;
+		__overlay__ {
+			status = "disabled";
+		};
+	};
 };
