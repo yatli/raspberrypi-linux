@@ -431,8 +431,10 @@ static int cwu50_probe(struct mipi_dsi_device *dsi)
 	}
 
 	ctx->backlight = devm_of_find_backlight(dev);
-	if (IS_ERR(ctx->backlight))
+	if (IS_ERR(ctx->backlight)) {
+		dev_err(ctx->dev, "devm_of_find_backlight");
 		return PTR_ERR(ctx->backlight);
+	}
 
 	ret = of_drm_get_panel_orientation(dev->of_node, &ctx->orientation);
 	if (ret) {
